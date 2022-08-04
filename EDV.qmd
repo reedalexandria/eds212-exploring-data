@@ -38,3 +38,47 @@ head(penguins)
 #Can you show me the last 6 lines?
 tail(penguins)
 ```
+
+```{r}
+skim(penguins)
+```
+
+-   the #\| warning: false took away all the warning text that comes with running the code below
+
+```{r}
+#| include: false
+
+GGally::ggpairs(penguins)
+```
+
+## Jitterplot
+
+Flipper length by species
+
+```{r}
+#| fig.cap = "My awesome figure caption"
+
+ggplot(data = penguins, aes(x= species, y = flipper_length_mm)) + 
+  geom_jitter(width = 0.2,
+              alpha = 0.5,
+              height = 0,
+              aes (color = species)) +
+  geom_boxplot(fill = NA) +
+  theme_light() +
+  scale_color_manual(values = c("darkorchid4", "cyan4", "goldenrod")) +
+  labs(x = "Penguin Species",
+       y = "Flipper Length (mm)",
+       title = "Palmer Archipelago Penguin Flippers")
+
+
+# variables needs to be within aes. width and alpha are not variables, so they can be outside.
+# alpha = opacity
+
+```
+
+```{r}
+ggplot(data = penguins, aes(x = bill_length_mm)) +
+  geom_histogram(aes(fill = species), color = "magenta") +
+  facet_wrap(~species, ncol = 1)
+
+```
