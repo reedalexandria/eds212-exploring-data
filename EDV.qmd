@@ -1,0 +1,40 @@
+---
+title: "Day 4 - Exploring Data"
+author: "Alex Reed"
+format: html
+editor: visual
+---
+
+```{r}
+#| warning: false
+#| echo: false 
+
+#Echo shows the output but not the code?
+
+library(tidyverse)
+library(palmerpenguins)
+library(GGally)
+library(skimr)
+```
+
+## Exploratory Data Viz
+
+\# view(penguins) in console to pull up penguin data set
+
+Check out your data:
+
+```{r}
+#| include: false
+
+# Tell me the column names
+names(penguins)
+
+# What are the dimensions>
+dim(penguins)
+
+#Can you show me the first 6 times?
+head(penguins)
+
+#Can you show me the last 6 lines?
+tail(penguins)
+```
